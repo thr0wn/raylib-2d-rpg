@@ -1,8 +1,8 @@
 #include "raylib.h"
 #include "common.h"
 
-#ifndef TEST_H_TILE
-#define TEST_H_TILE
+#ifndef TILE_H
+#define TILE_H
 
 #define TILE_WIDTH 8
 #define TILE_HEIGHT 8

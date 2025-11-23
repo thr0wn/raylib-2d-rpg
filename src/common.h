@@ -1,7 +1,7 @@
 #include "raylib.h"
 
-#ifndef TEST_H_COMMON
-#define TEST_H_COMMON
+#ifndef COMMON_H
+#define COMMON_H
 
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT 600
@@ -14,6 +14,6 @@ extern Camera2D camera;
 typedef struct {
   int x;
   int y;
-} GameEntity;
+} Entity;
 
 #endif

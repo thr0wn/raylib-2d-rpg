@@ -54,8 +54,6 @@ void tileRender() {
                texture_index_y);
     }
   }
-
-  drawTile(camera.target.x, camera.target.y, 4.0f, 0);
 }
 
 void tileStop() {

@@ -1,11 +1,11 @@
+#include "main.h"
 #include "raylib.h"
-#include "player.h"
 
 Camera2D camera = {0};
-GameEntity player = {0};
+Entity player = {0};
 
 void playerStart() {
-  player = (GameEntity){.x = WORLD_WIDTH / 2, .y = WORLD_HEIGHT / 2};
+  player = (Entity){.x = WORLD_WIDTH / 2, .y = WORLD_HEIGHT / 2};
 
   camera.target.x = player.x;
   camera.target.y = player.y;
@@ -49,3 +49,5 @@ void playerUpdate() {
   camera.target.x = TILE_WIDTH * player.x;
   camera.target.y = TILE_HEIGHT * player.y;
 }
+
+void playerRender() { drawTile(camera.target.x, camera.target.y, 4.0f, 0); }

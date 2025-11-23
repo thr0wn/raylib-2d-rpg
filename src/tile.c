@@ -1,5 +1,6 @@
 #include "tile.h"
 #include "raylib.h"
+#include "raymath.h"
 
 typedef enum { TEXTURE_TITLEMAP = 0 } texture_asset;
 
@@ -13,7 +14,9 @@ typedef enum {
 Texture2D textures[MAX_TEXTURES];
 Tile world[WORLD_WIDTH][WORLD_HEIGHT];
 
-tile_type getRandomTileType() { return TILE_TYPE_DIRT; }
+tile_type getRandomTileType() {
+  return GetRandomValue(TILE_TYPE_DIRT, TILE_TYPE_TREE);
+}
 
 void tileStart() {
   Image image = LoadImage("resources/colored_tilemap_packed.png");
@@ -47,8 +50,26 @@ void tileRender() {
   for (int i = 0; i < WORLD_WIDTH; i++) {
     for (int j = 0; j < WORLD_HEIGHT; j++) {
       tile = world[i][j];
-      texture_index_x = 4;
-      texture_index_y = 4;
+
+      switch (tile.type) {
+      case TILE_TYPE_DIRT:
+      default:
+        texture_index_x = 4;
+        texture_index_y = 4;
+        break;
+      case TILE_TYPE_GRASS:
+        texture_index_x = 5;
+        texture_index_y = 4;
+        break;
+      case TILE_TYPE_TREE:
+        texture_index_x = 5;
+        texture_index_y = 5;
+        break;
+      case TILE_TYPE_STONE:
+        texture_index_x = 1;
+        texture_index_y = 6;
+        break;
+      }
 
       drawTile(tile.x * TILE_WIDTH, tile.y * TILE_HEIGHT, texture_index_x,
                texture_index_y);

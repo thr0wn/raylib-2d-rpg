@@ -1,0 +1,13 @@
+build
+_deps
+CMakeFiles
+.cache
+
+raylib-2d-rpg
+CMakeCache.txt
+CPackConfig.cmake
+CPackSourceConfig.cmake
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json

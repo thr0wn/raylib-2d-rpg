@@ -7,17 +7,15 @@
 ## Build and run
 This project uses cmake as build system. Follow below instructions to run it.
 
-### Setup
+Setup
 ```shell
 cmake .
 ```
-
-### Build
+Build
 ```shell
 cmake --build .
 ```
-
-### Run
+Run
 ```shell
 ./raylib-2d-rpg/raylib-2d-rpg
 ```

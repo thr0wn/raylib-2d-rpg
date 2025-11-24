@@ -1,15 +1,16 @@
 #include "main.h"
 
 void gameStart() {
-  InitAudioDevice();
   tileStart();
   playerStart();
   enemyStart();
+  soundStart();  
 }
 
 void gameUpdate() {
   playerUpdate();
-  enemyUpdate();  
+  enemyUpdate();
+  soundUpdate();  
 }
 
 void gameRender() {
@@ -21,9 +22,9 @@ void gameRender() {
   debugRender();
 }
 
-void gameShutdown() {
+void gameStop() {
   tileStop();
-  CloseAudioDevice();
+  soundStop();  
 }
 
 int main(void) {
@@ -43,7 +44,7 @@ int main(void) {
     EndDrawing();
   }
 
-  gameShutdown();
+  gameStop();
 
   CloseWindow();
 

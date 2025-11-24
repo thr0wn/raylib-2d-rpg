@@ -9,5 +9,7 @@ void debugRender() {
            15, 10, 14, YELLOW);
   DrawText(TextFormat("Camera Zoom: %.2f", camera.zoom), 15, 30, 14, YELLOW);
   DrawText(TextFormat("Player Health: %d", player.health), 15, 50, 14, YELLOW);
+  DrawText(TextFormat("Player xp: %d", player.experience), 15, 70, 14, YELLOW);
+  DrawText(TextFormat("Player money: %d", player.money), 15, 90, 14, YELLOW);
   DrawText(TextFormat("Enemy Health: %d", enemy.health), 15, 110, 14, YELLOW);
 }

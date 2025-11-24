@@ -29,6 +29,10 @@ typedef struct {
   int experience;  
 } Entity;
 
+// global entities
 extern Entity player, enemy, chest;
+
+// global events
+extern bool playerZoneChanged, playerPositionChanged, playerMoneyChanged, playerDamageChanged, enemyIsAliveChanged;
 
 #endif

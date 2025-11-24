@@ -6,6 +6,9 @@
 Camera2D camera = {0};
 Entity player = {0};
 
+// events
+bool playerZoneChanged, playerPositionChanged, playerMoneyChanged, playerDamageChanged, enemyIsAliveChanged = false;
+
 void playerStart() {
   player = (Entity){.position = {.x = 10, .y = 10},
                     .zone = ZONE_WORLD,
@@ -64,6 +67,9 @@ void playerMove() {
     y += 1;
   }
 
+  // event playerPositionChanged
+  playerPositionChanged = player.position.x != x || player.position.y != y;
+
   player.position.x = x;
   player.position.y = y;
 
@@ -86,6 +92,9 @@ void playerEnterDungeon() {
       break;
     }
   }
+
+  // event
+  playerZoneChanged = shouldEnter;
 }
 
 double lastDamageTime = 0;
@@ -93,7 +102,7 @@ void playerDamage() {
   double elapsedTime = GetTime() - lastDamageTime;
   bool shouldDamage = elapsedTime > 1.0f && player.zone == enemy.zone &&
                       enemy.isAlive &&
-                      Vector2Distance(player.position, enemy.position) <= .5f;
+                      Vector2Distance(player.position, enemy.position) <= 1.0f;
   if (shouldDamage) {
     int damage = GetRandomValue(2, 20);
     enemy.health -= damage;
@@ -107,14 +116,19 @@ void playerDamage() {
     }
     lastDamageTime = GetTime();
   }
+
+  playerDamageChanged = shouldDamage;
+  enemyIsAliveChanged = shouldDamage && enemy.health <= 0;
 }
 
 void playerPickChest() {
   bool shouldPick = IsKeyPressed(KEY_E) && player.zone == enemy.zone &&
                     chest.isAlive &&
-                    Vector2Distance(player.position, chest.position) <= .5f;
+                    Vector2Distance(player.position, chest.position) <= 1.0f;
   if (shouldPick) {
     chest.isAlive = false;
     player.money += chest.money;
   }
+
+  playerMoneyChanged = shouldPick;
 }

@@ -1,6 +1,7 @@
 [![](https://img.shields.io/badge/clang-black?logo=c&style=for-the-badge)](https://learnxinyminutes.com/c/)
 
-<img width="444" height="334" alt="image" src="https://github.com/user-attachments/assets/73ebaed7-7fe9-4738-8e41-b29d28b38152" />
+<img src="https://github.com/thr0wn/raylib-2d-rpg/raw/4935b76952c38852744acddbea09f0facecbb53f/resources/gameplay.gif" />
+
 
 # Raylib 2D RPG
 

@@ -1,19 +1,22 @@
 #include "main.h"
-#include "raylib.h"
-#include "raymath.h"
 
 void gameStart() {
   InitAudioDevice();
   tileStart();
   playerStart();
+  enemyStart();
 }
 
-void gameUpdate() { playerUpdate(); }
+void gameUpdate() {
+  playerUpdate();
+  enemyUpdate();  
+}
 
 void gameRender() {
   BeginMode2D(camera);
   tileRender();
   playerRender();
+  enemyRender();
   EndMode2D();
   debugRender();
 }

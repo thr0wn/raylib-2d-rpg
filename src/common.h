@@ -1,4 +1,5 @@
 #include "raylib.h"
+#include "raymath.h"
 
 #ifndef COMMON_H
 #define COMMON_H
@@ -11,9 +12,23 @@
 
 extern Camera2D camera;
 
+typedef enum {
+  ZONE_ALL = 0,
+  ZONE_WORLD,
+  ZONE_DUNGEON,
+} Zone;
+
 typedef struct {
-  int x;
-  int y;
+  Vector2 position;
+  Zone zone;
+  int health;
+  int damage;
+  int isPassable;
+  bool isAlive;
+  int money;
+  int experience;  
 } Entity;
+
+extern Entity player, enemy, chest;
 
 #endif

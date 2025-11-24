@@ -1,4 +1,3 @@
-#include "raylib.h"
 #include "common.h"
 
 #ifndef TILE_H
@@ -15,12 +14,12 @@ typedef struct {
   int type;
 } Tile;
 
-extern Texture2D textures[MAX_TEXTURES];
-extern Tile world[WORLD_WIDTH][WORLD_HEIGHT];
+extern Entity dungeonGate;
 
 void tileStart();
 void tileRender();
 void tileStop();
 void drawTile(int pos_x, int pos_y, int texture_index_x, int texture_index_y);
+Entity createChest();
 
 #endif

@@ -1,4 +1,4 @@
-#include "common.h"
+#include "../common.h"
 
 #ifndef TILE_H
 #define TILE_H

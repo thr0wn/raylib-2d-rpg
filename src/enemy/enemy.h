@@ -1,4 +1,4 @@
-#include "tile.h"
+#include "../tile/tile.h"
 
 #ifndef ENEMY_H
 #define ENEMY_H

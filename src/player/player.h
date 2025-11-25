@@ -1,5 +1,5 @@
-#include "common.h"
-#include "tile.h"
+#include "../common.h"
+#include "../tile/tile.h"
 
 #ifndef PLAYER_H
 #define PLAYER_H

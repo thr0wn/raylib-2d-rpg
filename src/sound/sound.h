@@ -1,4 +1,4 @@
-#include "common.h"
+#include "../common.h"
 
 #ifndef SOUND_H
 #define SOUND_H

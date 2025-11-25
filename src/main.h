@@ -1,8 +1,8 @@
 #include "raylib.h"
 #include "raymath.h"
 
-#include "tile.h"
-#include "player.h"
-#include "enemy.h"
-#include "sound.h"
-#include "debug.h"
+#include "tile/tile.h"
+#include "player/player.h"
+#include "enemy/enemy.h"
+#include "sound/sound.h"
+#include "debug/debug.h"

@@ -1,4 +1,4 @@
-#include "common.h"
+#include "../common.h"
 
 #ifndef DEBUG_H
 #define DEBUG_H

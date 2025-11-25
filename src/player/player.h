@@ -1,4 +1,5 @@
 #include "../common.h"
+#include "../timer/timer.h"
 #include "../tile/tile.h"
 
 #ifndef PLAYER_H

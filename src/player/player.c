@@ -1,13 +1,14 @@
 #include "player.h"
-#include "raylib.h"
-#include "raymath.h"
-#include <unistd.h>
 
 Camera2D camera = {0};
 Entity player = {0};
 
+// timers
+Timer damageTimer;
+
 // events
-bool playerZoneChanged, playerPositionChanged, playerMoneyChanged, playerDamageChanged, enemyIsAliveChanged = false;
+bool playerZoneChanged, playerPositionChanged, playerMoneyChanged,
+    playerDamageChanged, enemyIsAliveChanged = false;
 
 void playerStart() {
   player = (Entity){.position = {.x = 10, .y = 10},
@@ -97,24 +98,25 @@ void playerEnterDungeon() {
   playerZoneChanged = shouldEnter;
 }
 
-double lastDamageTime = 0;
 void playerDamage() {
-  double elapsedTime = GetTime() - lastDamageTime;
-  bool shouldDamage = elapsedTime > 1.0f && player.zone == enemy.zone &&
+  if (damageTimer.startTime == 0) {
+    timerStart(&damageTimer, 1.0f);    
+  }
+
+  bool shouldDamage = timerIsEnded(damageTimer) && player.zone == enemy.zone &&
                       enemy.isAlive &&
                       Vector2Distance(player.position, enemy.position) <= 1.0f;
   if (shouldDamage) {
     int damage = GetRandomValue(2, 20);
     enemy.health -= damage;
     enemy.damage = damage;
-
     if (enemy.health <= 0) {
       enemy.health = 0;
       enemy.isAlive = false;
       player.experience += enemy.experience;
       createChest();
     }
-    lastDamageTime = GetTime();
+    timerStart(&damageTimer, 1.0f);
   }
 
   playerDamageChanged = shouldDamage;

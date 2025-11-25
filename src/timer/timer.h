@@ -3,13 +3,13 @@
 #ifndef TIMER_H
 #define TIMER_H
 
-typedef struct {
+typedef struct Timer {
   double startTime;
   double endTime;
 } Timer;
 
 void timerStart(Timer *timer, double endTime);
-bool timerIsDone(Timer timer);
+bool timerIsEnded(Timer timer);
 double timerGetElapsed(Timer timer);
 
 #endif

@@ -12,13 +12,13 @@ This project uses cmake as build system. Follow below instructions to run it.
 
 Setup
 ```shell
-cmake .
+cmake -S . -B build
 ```
 Build
 ```shell
-cmake --build .
+cmake --build build
 ```
 Run
 ```shell
-./raylib-2d-rpg/raylib-2d-rpg
+./build/raylib-2d-rpg/raylib-2d-rpg
 ```

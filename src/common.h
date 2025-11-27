@@ -1,9 +1,7 @@
+#pragma once
 #include <stdio.h>
 #include "raylib.h"
 #include "raymath.h"
-
-#ifndef COMMON_H
-#define COMMON_H
 
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT 600
@@ -13,13 +11,13 @@
 
 extern Camera2D camera;
 
-typedef enum {
+typedef enum Zone {
   ZONE_ALL = 0,
   ZONE_WORLD,
   ZONE_DUNGEON,
 } Zone;
 
-typedef struct {
+typedef struct Entity {
   Vector2 position;
   Zone zone;
   int health;
@@ -30,10 +28,17 @@ typedef struct {
   int experience;  
 } Entity;
 
+typedef struct Timer {
+  double startTime;
+  double endTime;
+  bool isActive;  
+} Timer;
+
 // global entities
 extern Entity player, enemy, chest;
 
+// global timers
+extern Timer damageTimer;
+
 // global events
 extern bool playerZoneChanged, playerPositionChanged, playerMoneyChanged, playerDamageChanged, enemyIsAliveChanged;
-
-#endif

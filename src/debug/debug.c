@@ -1,6 +1,6 @@
 #include "debug.h"
 
-void debugRender() {
+void debugRenderOnScreen() {
   DrawRectangle(5, 5, 330, 120, Fade(SKYBLUE, 0.5f));
   DrawRectangleLines(5, 5, 330, 120, BLUE);
 

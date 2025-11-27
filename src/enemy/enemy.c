@@ -1,5 +1,4 @@
 #include "enemy.h"
-#include "raylib.h"
 
 Entity enemy = {0};
 
@@ -22,9 +21,20 @@ void enemyRender() {
       drawTile(enemy.position.x * TILE_WIDTH, enemy.position.y * TILE_HEIGHT,
                11, 0);
     }
-    /* if (!enemy.isAlive) { */
-    /*   drawTile(enemy.position.x * TILE_WIDTH, enemy.position.y * TILE_HEIGHT, 9, */
-    /*            7); */
-    /* } */
+    if (!chest.isAlive && !enemy.isAlive) {
+      drawTile(enemy.position.x * TILE_WIDTH, enemy.position.y * TILE_HEIGHT, 9,
+               7);
+    }
+    if (damageTimer.isActive) {
+      DrawText(TextFormat("%d", enemy.damage), (enemy.position.x * TILE_HEIGHT),
+               (enemy.position.y * TILE_HEIGHT) - 1.5 * TILE_HEIGHT, 1, YELLOW);
+    }
+  }
+}
+
+void enemyRenderOnScreen() {
+  if (!damageTimer.isActive) {
+    DrawText(TextFormat("%d", enemy.damage), (enemy.position.x * TILE_HEIGHT),
+             (enemy.position.y * TILE_HEIGHT) - 1.5 * TILE_HEIGHT, 1, YELLOW);
   }
 }

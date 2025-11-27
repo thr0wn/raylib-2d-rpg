@@ -4,13 +4,13 @@ void gameStart() {
   tileStart();
   playerStart();
   enemyStart();
-  soundStart();  
+  soundStart();
 }
 
 void gameUpdate() {
   playerUpdate();
   enemyUpdate();
-  soundUpdate();  
+  soundUpdate();
 }
 
 void gameRender() {
@@ -19,12 +19,13 @@ void gameRender() {
   playerRender();
   enemyRender();
   EndMode2D();
-  debugRender();
+  debugRenderOnScreen();
+  enemyRenderOnScreen();  
 }
 
 void gameStop() {
   tileStop();
-  soundStop();  
+  soundStop();
 }
 
 int main(void) {
@@ -37,8 +38,7 @@ int main(void) {
     gameUpdate();
 
     BeginDrawing();
-    ClearBackground(GRAY);
-
+    ClearBackground(BLACK);
     gameRender();
 
     EndDrawing();

@@ -99,13 +99,9 @@ void playerEnterDungeon() {
 }
 
 void playerDamage() {
-  if (damageTimer.startTime == 0) {
-    timerStart(&damageTimer, 1.0f);    
-  }
-
-  bool shouldDamage = timerIsEnded(damageTimer) && player.zone == enemy.zone &&
+  bool shouldDamage = (!damageTimer.isActive || timerIsEnded(damageTimer)) && player.zone == enemy.zone &&
                       enemy.isAlive &&
-                      Vector2Distance(player.position, enemy.position) <= 1.0f;
+                      Vector2Distance(player.position, enemy.position) <= 1.5f;
   if (shouldDamage) {
     int damage = GetRandomValue(2, 20);
     enemy.health -= damage;
@@ -116,7 +112,13 @@ void playerDamage() {
       player.experience += enemy.experience;
       createChest();
     }
+    
+    damageTimer.isActive = true;
     timerStart(&damageTimer, 1.0f);
+  }
+
+  if (timerIsEnded(damageTimer)) {
+    damageTimer.isActive = false;
   }
 
   playerDamageChanged = shouldDamage;

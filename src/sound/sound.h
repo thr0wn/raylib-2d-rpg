@@ -1,7 +1,5 @@
+#pragma once
 #include "../common.h"
-
-#ifndef SOUND_H
-#define SOUND_H
 
 #define MAX_SOUNDS 5
 
@@ -25,5 +23,3 @@ extern Music music[MAX_MUSICS];
 void soundStart();
 void soundStop();
 void soundUpdate();
-
-#endif

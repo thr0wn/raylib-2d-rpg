@@ -1,9 +1,7 @@
+#pragma once
 #include "../common.h"
 #include "../timer/timer.h"
 #include "../tile/tile.h"
-
-#ifndef PLAYER_H
-#define PLAYER_H
 
 void playerStart();
 void playerUpdate();
@@ -15,5 +13,3 @@ void playerEnterDungeon();
 void playerPickChest();
 
 void cameraZoom();
-
-#endif
